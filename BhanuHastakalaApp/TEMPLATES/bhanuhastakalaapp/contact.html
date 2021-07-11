@@ -1,0 +1,177 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+{% load static %}
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>contact us</h4>
+              <h2>let’s get in touch</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% if name %}
+    <center>
+        <h2>Thanks {{ name }}</h2>
+        <p>We receive you email</p>
+    </center>
+    <br/>   <br/>   <br/>
+{% else %}
+    <div class="find-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Our Location on Maps</h2>
+            </div>
+          </div>
+          <div class="col-md-8">
+<!-- How to change your own map point
+	1. Go to Google Maps
+	2. Click on your location point
+	3. Click "Share" and choose "Embed map" tab
+	4. Copy only URL and paste it within the src="" field below
+-->
+            <div id="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.016046019582!2d84.40746591454409!3d27.96279482082743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399505d0fa1aafcb%3A0xf863ae96437b97ca!2sDumre%20Bazar%20Tanahu!5e0!3m2!1sen!2snp!4v1625467216185!5m2!1sen!2snp" width="100%" height="330px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="left-content">
+              <h4>About our office</h4>
+              <p>Bhanu Hastakal is one of the company with the aim to provide all kinds of traditional and modern wooden product.<br><br>We are in Damauli and we want to serve all over the Nepal.</p>
+              <ul class="social-icons">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="send-message">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Send us a Message</h2>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="contact-form">
+              <form id="contact" action="{% url 'BhanuHastakalaApp:contact' %}" method="post">
+                  {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message With Contact Number" required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="filled-button">Send Message</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <ul class="accordion">
+              <li>
+                  <a>Contact number: +977-989999,<br/> 065-566</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+              <li>
+                  <a>E-sewa ID: 984555</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+              <li>
+                  <a>Laxmi Bank Account : 9884575893</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+              <li>
+                  <a>Khalti: 88778878878</a>
+                  <div class="content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                  </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="happy-clients">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Our Happy Customers</h2>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="owl-clients owl-carousel">
+              <div class="client-item">
+                <img src="{% static 'Bhanu/images/client-01.png' %}" alt="1">
+              </div>
+              
+              <div class="client-item">
+                <img src="{% static 'Bhanu/images/client-01.png' %}" alt="2">
+              </div>
+              
+              <div class="client-item">
+                <img src="{% static 'Bhanu/images/client-01.png' %}" alt="3">
+              </div>
+              
+              <div class="client-item">
+                <img src="{% static 'Bhanu/images/client-01.png' %}" alt="4">
+              </div>
+              
+              <div class="client-item">
+                <img src="{% static 'Bhanu/images/client-01.png' %}" alt="5">
+              </div>
+              
+              <div class="client-item">
+                <img src="{% static 'Bhanu/images/client-01.png' %}" alt="6">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+    
+{% endblock %}

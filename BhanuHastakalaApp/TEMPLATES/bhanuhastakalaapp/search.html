@@ -1,0 +1,57 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+{% if result %}
+<div class="col-md-12">
+            <div class="filters-content">
+                <div class="row grid">
+                  {% for result in result %}
+                    <div class="col-lg-4 col-md-4 all des">
+                      <div class="product-item">
+                        <a href="{% url 'BhanuHastakalaApp:product-details' result.slug %}"><img src="{{ result.image.url }}" alt=""></a>
+                        <div class="down-content">
+                          <a href="{% url 'BhanuHastakalaApp:product-details' result.slug %}"><h4>{{result.title}}</h4></a>
+                          <h6><strike>RS.{{result.market_price}}</strike></h6>
+                          <h5>Rs.<h7>{{result.selling_price}}</h7></h5><br>
+                          <p>{{result.description}}</p>
+                          <br>
+
+                              <span>Reviews {{result.review_count}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+</div>
+
+{% else %}
+<center>
+    <br/>
+<br/>
+<br/>
+    <h2>Sorry Your Search Result {{ result.title }} Is Not found!!! </h2>
+
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+{% endif %}
+
+
+
+
+{% endblock %}

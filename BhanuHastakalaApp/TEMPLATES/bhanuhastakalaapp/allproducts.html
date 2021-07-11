@@ -1,0 +1,54 @@
+{% extends 'bhanuhastakalaapp/products.html' %}
+{% block contents %}
+{% load static %}
+
+<div class="col-md-12">
+            <div class="filters-content">
+                <div class="row grid">
+                  {% for p in product_list %}
+                    <div class="col-lg-4 col-md-4 all des">
+                      <div class="product-item">
+                        <a href="{% url 'BhanuHastakalaApp:product-details' p.slug %}"><img src="{{ p.image.url }}" alt=""></a>
+                        <div class="down-content">
+                          <a href="{% url 'BhanuHastakalaApp:product-details' p.slug %}"><h4>{{p.title}}[BHK {{p.id}}]</h4></a>
+                          <h6><strike>RS.{{p.market_price}}</strike></h6>
+                          <h5>Rs.<h7>{{p.selling_price}}</h7></h5><br>
+                          <p>{{p.description}}</p>
+                          <br>
+
+                              <span>Reviews {{p.review_count}}</span>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+          </div>
+
+   <div class="col-md-12">
+            <ul class="pages">
+                {% if product_list.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ product_list.previous_page_number }}"><<</a></li>
+                {% else %}
+                <li class = "page-item disable"><a class="page-link" href="" tabindex="-1"> << </a></li>
+                {% endif %}
+                    {% for i in product_list.paginator.page_range %}
+                    {% if i == product_list.number %}
+
+                <li class="page-item active"><a class="page-link">{{i}}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                {% endif %}
+                {% endfor %}
+
+            {% if product_list.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ product_list.next_page_number }}">>></a></li>
+                {% else %}
+                 <li class="page-item  "><a class="page-link" href="" tabindex="+1">>></a></li>
+
+            {% endif %}
+            </ul>
+          </div>
+{% endblock %}

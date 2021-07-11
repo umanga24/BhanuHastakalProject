@@ -1,0 +1,39 @@
+{% extends 'bhanuhastakalaapp/products.html' %}
+{% block contents %}
+{% load static %}
+
+<div class="col-md-12">
+            <div class="filters-content">
+                {% for d in dinning %}
+                    <div class="row grid">
+
+                      {% for p in d.product_set.all %}
+                        <div class="col-lg-4 col-md-4 all des">
+                          <div class="product-item">
+                            <a href="{% url 'BhanuHastakalaApp:product-details' p.slug %}"><img src="{{ p.image.url }}" alt=""></a>
+                            <div class="down-content">
+                              <a href="{% url 'BhanuHastakalaApp:product-details' p.slug %}"><h4>{{p.title}}[BHK {{p.id}}]</h4></a>
+                              <h6><strike>RS.{{p.market_price}}</strike></h6>
+                              <h5>Rs.<h7>{{p.selling_price}}</h7></h5><br>
+                              <p>{{p.description}}</p>
+                              <br>
+                                <span>Reviews {{p.review_count}}</span>
+
+
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                  {% endfor %}
+
+            </div>
+          </div>
+
+
+{% endblock %}
+
+
+
+
+

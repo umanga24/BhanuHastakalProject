@@ -1,0 +1,59 @@
+{% extends 'adminpages/adminbase.html' %}
+{% block content %}
+{% load static %}
+<br/>
+<br/>
+<br/>
+<br/>
+<center>
+    {%  if messages %}
+        {% for message in messages %}
+             <div class="text-center alert alert-{{ message.tags }} m-2" id="msg" role="alert">
+                 {{ message|safe }}
+             </div>
+        {% endfor %}
+    {% endif %}
+</center>
+
+<script>
+    setTimeout(function(){
+        if ($('#msg').length > 0) {
+            $('#msg').remove();
+        }
+    }, 800)
+</script>
+
+
+
+<div class="col-md-12">
+            <div class="filters-content">
+                <div class="row grid">
+                  {% for p in productlist %}
+                    <div class="col-lg-4 col-md-4 all des">
+                      <div class="product-item">
+                        <a href="{% url 'BhanuHastakalaApp:product-detail' p.slug %}"><img src="{{ p.image.url }}" alt=""></a>
+                        <div class="down-content">
+                          <a href="{% url 'BhanuHastakalaApp:product-detail' p.slug %}"><h4>{{p.title}}[BHK {{p.id}}]</h4></a>
+                          <h6><strike>RS.{{p.market_price}}</strike></h6>
+<!--                          <h5>Rs.<h7>{{p.selling_price}}</h7></h5><br>-->
+                            <center>
+                                <a href="{% url 'BhanuHastakalaApp:edit-product' p.slug %}" class="btn btn-warning">Edit  </a>
+                            <a href="{% url 'BhanuHastakalaApp:product-delete' p.slug %}" class="btn btn-danger">Delete</a>
+
+                            </center>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+          </div>
+
+
+
+
+
+
+{% endblock %}

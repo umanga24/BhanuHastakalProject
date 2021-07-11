@@ -1,0 +1,44 @@
+{% extends 'adminpages/adminbase.html' %}
+{% block content %}
+{% load static %}
+
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
+<div class="row">
+    <div class="col-md-7">
+        <img src="{{product.image.url}}" alt="" class="img-fluid"><hr>
+    </div>
+
+    <div class="col-md-5">
+        <h1 class="text-danger">{{ product.title }}</h1><hr>
+
+        <h5 class="text-info">Market Price Rs.<strike>{{product.market_price}}</strike>&nbsp; &nbsp;Selling Price Rs.{{product.selling_price}}</h5>
+        <br>
+
+        <h6 class="text-info">warrenty: {{product.warrenty}}</h6>
+        <h6 class="text-info">Return Policy: {{product.return_policy}}</h6>
+        <hr>
+        <p>Description: {{product.description}}</p>
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

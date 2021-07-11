@@ -1,0 +1,49 @@
+{% extends 'adminpages/adminbase.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <center>
+            <h3 class="text-danger">Please Update Product</h3>
+            </center>
+               {%  if messages %}
+                {% for message in messages %}
+                     <div class="text-center alert alert-{{ message.tags }} m-2" id="msg" role="alert">
+                         {{ message|safe }}
+                     </div>
+                {% endfor %}
+            {% endif %}
+
+            <script>
+                    setTimeout(function(){
+                        if ($('#msg').length > 0) {
+                            $('#msg').remove();
+                        }
+                    }, 3000)
+            </script>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form | crispy}}
+                <button class="btn  btn-block btn-outline-success">Update</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

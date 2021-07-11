@@ -1,0 +1,39 @@
+{% extends 'adminpages/adminbase.html' %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="col-md-12">
+    <div class="container">
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <center>
+                     <h3 class="text-danger">
+                                Are you want to delete : {{product.title}} ??
+                            </h3><br/>
+                                <button type="submit" class="btn btn-danger">Okay</button>
+
+                            <a href="{% url 'BhanuHastakalaApp:adminhome' %}"><button class="btn btn-info">Cancel</button></a>
+                </center>
+            </form>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock %}

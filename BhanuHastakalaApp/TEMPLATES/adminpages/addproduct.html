@@ -1,0 +1,59 @@
+{% extends 'adminpages/adminbase.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            <center>
+            <h3 class="text-danger">Add New Product</h3>
+            </center>
+           {%  if messages %}
+                 {% for message in messages %}
+
+                         <div class="text-center alert alert-{{ message.tags }} m-2" id="msg" role="alert">
+                             {{ message|safe }}
+                         </div>
+                {% endfor %}
+            {% endif %}
+
+<!--            <script>-->
+<!--                 $(document).ready(function() {-->
+<!--                    // messages timeout for 10 sec-->
+<!--                    setTimeout(function() {-->
+<!--                        $('.message').fadeOut('slow');-->
+<!--                    }, 10000); // <&#45;&#45; time in milliseconds, 1000 =  1 sec-->
+<!--                 });-->
+<!--            </script>-->
+
+            <script>
+                setTimeout(function(){
+                    if ($('#msg').length > 0) {
+                        $('#msg').remove();
+                    }
+                }, 3000)
+            </script>
+
+            <br/>
+
+
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form | crispy}}
+
+                    <button class="btn btn-block  btn-outline-success">Submit</button>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
